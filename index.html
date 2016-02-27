@@ -1,59 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>A.Ham</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A.Ham</title>
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              <img alt="Brand" src="http://i67.tinypic.com/raas29_th.png"  height="25">
-            </a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Default</a></li>
-              <li><a href="#">Static top</a></li>
-              <li><a href="#">Fixed top <span class="sr-only">(current)</span></a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </nav>
-      <br><br><br><br>
-      <div>
-      <h1>A.Ham</h1>
-      <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="http://www.academia.org/wp-content/uploads/2015/05/alexander-hamilton.jpg" alt="...">
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img alt="Brand" src="http://i67.tinypic.com/raas29_th.png"  height="25"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="content">
+  <div class = "row">
+    <div class = "col-sm-4 col-md-4">
+      <a href = "#" class = "thumbnail">
+        <img src = "http://www.landofthebrave.info/images/alexander-hamilton.jpg" alt = "Generic placeholder thumbnail"></a>
       <div class="caption">
         <h3>Thumbnail label</h3>
-        <article>Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was a Founding Father of the United States, chief staff aide to etc...</article>
-        <article><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></article>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
-    </div> <!--thumbnail div class -->
-    <div class="thumbnail">
-      <img src="http://www.academia.org/wp-content/uploads/2015/05/alexander-hamilton.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <article>Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was a Founding Father of the United States, chief staff aide to etc...</article>
-        <article><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></article>
-      </div>
-    </div> <!--thumbnail div class -->
-  </div> <!-- col div class-->
-</div>
-
 
     </div>
-    </body>
+    <div class = "col-sm-4 col-md-4">
+      <a href = "#" class = "thumbnail">
+        <img src = "http://www.landofthebrave.info/images/alexander-hamilton.jpg" alt = "Generic placeholder thumbnail"></a>
+        <div class="caption">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+    </div>
+    <div class = "col-sm-4 col-md-4">
+      <a href = "#" class = "thumbnail">
+         <img src = "http://www.landofthebrave.info/images/alexander-hamilton.jpg" alt = "Generic placeholder thumbnail"></a>
+         <div class="caption">
+           <h3>Thumbnail label</h3>
+           <p>...</p>
+           <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+         </div>
+   </div>
+
+</div> <!-- div class row end -->
+
+</div> <!-- div class content end -->
+
+
+
+
+
+
+</body>
 </html>
