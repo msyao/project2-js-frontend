@@ -5,99 +5,89 @@
 const myApp = {
   baseUrl: 'http://localhost:3000',
 };
-
-//sign up sign in change pw log out
 $(document).ready(() => {
-  $('#changepw').hide();
-  $('#logout-nav').hide();
-  $('#sign-up-button').on('click', function(e) {
-    e.preventDefault();
-    var formData = new FormData($("#sign-up")[0]);
-    $.ajax({
-      url: myApp.baseUrl + '/sign-up',
-      method: 'POST',
-      contentType: false,
-      processData: false,
-      data: formData,
-    }).done(function(data) {
-      console.log(data);
-    }).fail(function(jqxhr) {
-      console.error(jqxhr);
+    $('.signed-out').show();
+    $('.signed-in').hide();
+    $('#sign-up').on('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(e.target);
+      $.ajax({
+        url: myApp.BASE_URL + '/sign-up',
+        method: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+      }).done(function(data) {
+        console.log(data);
+        signIn(e);
+        $('#sign-up-modal').modal('hide');
+      }).fail(function(jqxhr) {
+        console.error(jqxhr);
+      });
+    });
+
+    let signIn = function(e){
+      e.preventDefault();
+      var formData = new FormData(e.target);
+      $.ajax({
+        url: myApp.BASE_URL + '/sign-in',
+        method: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+      }).done(function(data) {
+        console.log(data);
+        myApp.user = data.user;
+        console.log(myApp.user);
+        $('.signed-out').hide();
+        $('.signed-in').show();
+        $('#sign-in-modal').modal('hide');
+      }).fail(function(jqxhr) {
+        console.error(jqxhr);
+      });
+    };
+
+    //Login as existing user
+    $('#sign-in').on('submit', function(e) {
+      e.preventDefault();
+      signIn(e);
+    });
+
+    //Change password of currently logged-in user
+    $('#change-password').on('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(e.target);
+      $.ajax({
+        url: myApp.BASE_URL + '/change-password/' + myApp.user.id,
+        method: 'PATCH',
+        headers: {
+          Authorization: 'Token token=' + myApp.user.token,
+        },
+        contentType: false,
+        processData: false,
+        data: formData,
+      }).done(function(data) {
+        console.log(data);
+        $('#change-password-modal').modal('hide');
+      }).fail(function(jqxhr) {
+        console.error(jqxhr);
+      });
+    });
+
+    $('#sign-out-button').on('click', function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: myApp.BASE_URL + '/sign-out/' + myApp.user.id,
+        method: 'DELETE',
+        headers: {
+          Authorization: 'Token token=' + myApp.user.token,
+        },
+      }).done(function() {
+        console.log("Logged Out!");
+        $('.signed-out').show();
+        $('.signed-in').hide();
+      }).fail(function(jqxhr) {
+        console.error(jqxhr);
+      });
     });
   });
-
-
-  $('#sign-in-button').on('click', function(e) {
-    e.preventDefault();
-    var formData = new FormData($("#sign-in")[0]);
-    $.ajax({
-      url: myApp.baseUrl + '/sign-in',
-      method: 'POST',
-      contentType: false,
-      processData: false,
-      data: formData,
-    }).done(function(data) {
-      myApp.user = data.user;
-      // getGames();
-      $('#signing-up').hide();
-      $('#signing-in').hide();
-      $('.signin-msg').hide();
-      $('.signin-gif').hide();
-      $('#changepw').show();
-      $('#logout-nav').show();
-      createGame();
-      getGames();
-      $('.score-number').empty();
-      console.log(data);
-    }).fail(function(jqxhr) {
-      console.error(jqxhr);
-    });
-  });
-
-
-  $('#change-password-button').on('click', function(e) {
-    e.preventDefault();
-    if (!myApp.user) {
-      console.error('wrong');
-    }
-    var formData = new FormData($("#change-password")[0]);
-    $.ajax({
-      url: myApp.baseUrl + '/change-password/' + myApp.user.id,
-      method: 'PATCH',
-      headers: {
-        Authorization: 'Token token=' + myApp.user.token,
-      },
-      contentType: false,
-      processData: false,
-      data: formData,
-    }).done(function(data) {
-      console.log('successfully changed password');
-    }).fail(function(jqxhr) {
-      console.error(jqxhr);
-    });
-  });
-
-  $('#logout').on('click', function(e) {
-    e.preventDefault();
-    if (!myApp.user) {
-      console.error('wrong');
-    }
-    $.ajax({
-      url: myApp.baseUrl + '/sign-out/' + myApp.user.id,
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Token token=' + myApp.user.token,
-      },
-    }).done(function(data) {
-      console.log(data);
-      $('.messages').text('');
-      $('.box').text('');
-    }).fail(function(jqxhr) {
-      console.error(jqxhr);
-    });
-  });
-
-});
-
-module.exports = {
-};
