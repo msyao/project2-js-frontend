@@ -5,7 +5,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'colors';
 
 
-
+.nav {
+  margin-right: 10px;
+}
 .content {
   margin: 5em 0 7em 0;
   padding: 0 3em 0 3em;
