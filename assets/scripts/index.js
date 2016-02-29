@@ -4,7 +4,7 @@
 // use require without a reference to ensure a file is bundled
 require('./example');
 require('./api-auth'); //login
-//require('./articles-crud')
+const articleCrud = require('./articles-crud');  //front end crud
 
 //display content in home tab
 let displayHome = function(response){
@@ -37,6 +37,9 @@ let displayArticles = function(response){
 let clear = function(){
  $('.content').empty();
 };
+
+
+$('#create-article').on('submit', articleCrud.createArticle);
 
 
 $(document).ready(function(){

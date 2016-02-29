@@ -22,8 +22,9 @@
       <ul class="nav navbar-nav">
         <li class="home-tab"><a href="#">Home</a></li>
         <li class="articles-tab"><a href="#">Articles</a></li>
-
+        <li class="create-tab"><a href="#" data-toggle="modal" data-target="#create-article-modal"> Create</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="sign-up-nav"><a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li class="sign-in-nav"><a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
@@ -154,7 +155,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="body">Body</label>
-                  <textarea class="form-control" id="body" rows="3"></textarea>
+                  <textarea class="form-control" id="body" rows="6" placeholder="Ham It Up!"></textarea>
                 </fieldset>
                 <input type="submit" class="btn btn-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -171,7 +172,7 @@
     </div> <!-- end of CRUD modals ----------------------------------------------------------->
 
 
-    
+
       <div class="footer navbar-fixed-bottom">
         <footer class="footer">
           <p class="text-muted">Footer</p>

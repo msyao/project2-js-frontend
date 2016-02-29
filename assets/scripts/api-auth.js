@@ -9,6 +9,7 @@ const myApp = {
 $(document).ready(() => {
   $('.change-password-nav').hide();
   $('.sign-out-nav').hide();
+  $('.create-tab').hide();
   //Create new user from form id="sign-up"
   $('#sign-up').on('submit', function(e) {
     e.preventDefault();
@@ -41,6 +42,7 @@ $(document).ready(() => {
       myApp.user = data.user;
       console.log(data);
       $('.change-password-nav').show();
+      $('.create-tab').show();
       $('.sign-in-nav').hide();
       $('.sign-out-nav').show();
       $('.sign-up-nav').hide();
