@@ -4,21 +4,24 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'thumbnail';
 @import 'colors';
 
+.body {
+  font-family: $helvetica;
+}
 
 .nav {
-  margin-right: 10px;
-}
-.content {
-  margin: 5em 0 7em 0;
-  padding: 0 3em 0 3em;
+  margin: 0 10px;
 }
 
-.footer{
-  height: 60px;
-  background-color: $gold;
+.content {
+  margin: auto;
 }
-.footer p {
-  text-align: center;
-  padding: 2em;
-  color: $white;
+
+.footer {
+  background-color: $gold;
+  height: 60px;
+  p {
+    color: $white;
+    padding: 2em;
+    text-align: center;
+  }
 }
