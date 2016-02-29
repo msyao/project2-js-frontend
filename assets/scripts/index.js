@@ -1,21 +1,18 @@
 'use strict';
-
 // user require with a reference to bundle the file and use it in this file
 // var example = require('./example');
-
 // use require without a reference to ensure a file is bundled
 require('./example');
-require('./api-auth'); //login credentials
+require('./api-auth'); //login
+//require('./articles-crud')
 
-
-
+//display content in home tab
 let displayHome = function(response){
   console.log('displayHome works');
   $('.content').html();
 };
 
-
-
+//get articles in articles tab
 let getArticles = function(){
   $.ajax({
     url: "http://localhost:3000/articles",
@@ -27,6 +24,7 @@ let getArticles = function(){
   });
 };
 
+//display articles in articles tab
 let displayArticles = function(response){
   console.log('displayArticles works');
   let articles = response.articles;
@@ -34,9 +32,11 @@ let displayArticles = function(response){
   $('.content').html(articleListingTemplate({articles}));
 };
 
+
+//clear content on page
 let clear = function(){
  $('.content').empty();
-}
+};
 
 
 $(document).ready(function(){

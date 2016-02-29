@@ -27,7 +27,7 @@ $(document).ready(() => {
     });
   });
 
-
+//Signs in registered user
   $('#sign-in').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(e.target);

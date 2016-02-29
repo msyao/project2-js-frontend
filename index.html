@@ -128,11 +128,50 @@
       </div> <!--Sign Out Modal End-->
 
       <div class="content">
+        <!-- Handlebars content ----------------------------->
+      </div>
 
+      <!-- CRUD front end modals -------------------------------------------------------------->
+      <div class="crud-modals">
+
+      <!-- Create article modal ----->
+      <div class="modal fade" id="create-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="create-article-label">Create Article</h4>
+            </div>
+            <div class="modal-body">
+              <form id='create-article'>
+                <fieldset class="form-group">
+                  <label for="title">Title</label>
+                  <input name="title" type="text" class="form-control" placeholder="Title">
+                </fieldset>
+                <fieldset class="form-group">
+                  <label for="author">Author</label>
+                  <input name="author" type="text" class="form-control" placeholder="Author">
+                </fieldset>
+                <fieldset class="form-group">
+                  <label for="body">Body</label>
+                  <textarea class="form-control" id="body" rows="3"></textarea>
+                </fieldset>
+                <input type="submit" class="btn btn-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
 
 
 
+
+
+    </div> <!-- end of CRUD modals ----------------------------------------------------------->
+
+
+    
       <div class="footer navbar-fixed-bottom">
         <footer class="footer">
           <p class="text-muted">Footer</p>
