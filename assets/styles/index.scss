@@ -3,6 +3,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'bourbon/bourbon';
 @import 'colors';
 
+body {
+  font-family: $helvetica;
+}
 
 .nav {
   margin: 0 10px;

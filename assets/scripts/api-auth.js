@@ -7,8 +7,8 @@ const myApp = {
 };
 
 $(document).ready(() => {
-  // $('.sign-out-nav').hide();
-  // $('.change-password-nav').hide();
+  $('.change-password-nav').hide();
+  $('.sign-out-nav').hide();
   //Create new user from form id="sign-up"
   $('#sign-up').on('submit', function(e) {
     e.preventDefault();
@@ -40,6 +40,10 @@ $(document).ready(() => {
     }).done(function(data) {
       myApp.user = data.user;
       console.log(data);
+      $('.change-password-nav').show();
+      $('.sign-in-nav').hide();
+      $('.sign-out-nav').show();
+      $('.sign-up-nav').hide();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
@@ -77,8 +81,10 @@ $(document).ready(() => {
       },
     }).done(function() {
       console.log("Logged Out!");
-      $('.signed-out').show();
-      $('.signed-in').hide();
+      $('.change-password-nav').hide();
+      $('.sign-in-nav').show();
+      $('.sign-out-nav').hide();
+      $('.sign-up-nav').show();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
