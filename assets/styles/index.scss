@@ -2,17 +2,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'bourbon/bourbon';
 @import 'colors';
+@import 'typography';
 
-body {
-  font-family: $helvetica;
-}
 
 .nav {
   margin: 0 10px;
 }
 
 .content {
-  margin: auto;
+  margin: 5em;
+  margin-bottom: 10em;
 }
 
 .footer {

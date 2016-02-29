@@ -10,29 +10,25 @@ require('./api-auth'); //login credentials
 
 
 let getArticles = function(){
- $.ajax({
-   url: "http://localhost:3000/articles",
-   method: 'GET',
-   dataType: 'json'
- }).done(function(articles){
-  //  displayBooks(articles);
-   console.log(articles);
- });
+  $.ajax({
+    url: "http://localhost:3000/articles",
+    method: 'GET',
+    dataType: 'json'
+  }).done(function(articles){
+    displayArticles(articles);
+    console.log(articles);
+  });
 };
 
-// let displayArticles = function(articles){
-//  let articleListingTemplate = require('./article-listing.handlebars');
-//  $('.content').append(articleListingTemplate({articles}));
-//    getUsers();
-//  });
-//
-// };
+let displayArticles = function(response){
+  console.log('displayArticles works');
+  let articles = response.articles;
+  let articleListingTemplate = require('./article-listing.handlebars');
+  $('.content').html(articleListingTemplate({articles}));
+};
 
 
-let clear = function(){
- $('.content').empty();
-}
 
 $(document).ready(function(){
-// getArticles();
+  getArticles();
 });

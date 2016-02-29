@@ -80,7 +80,7 @@ $(document).ready(() => {
         Authorization: 'Token token=' + myApp.user.token,
       },
     }).done(function() {
-      console.log("Logged Out!");
+      console.log("User Logged Out");
       $('.change-password-nav').hide();
       $('.sign-in-nav').show();
       $('.sign-out-nav').hide();
