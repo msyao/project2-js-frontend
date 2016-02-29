@@ -9,6 +9,13 @@ require('./api-auth'); //login credentials
 
 
 
+let displayHome = function(response){
+  console.log('displayHome works');
+  $('.content').html();
+};
+
+
+
 let getArticles = function(){
   $.ajax({
     url: "http://localhost:3000/articles",
@@ -27,8 +34,17 @@ let displayArticles = function(response){
   $('.content').html(articleListingTemplate({articles}));
 };
 
+let clear = function(){
+ $('.content').empty();
+}
 
 
 $(document).ready(function(){
-  getArticles();
+  $('.articles-tab').on('click',function(){
+    getArticles();
+  });
+  $('.home-tab').on('click',function(){
+    clear();
+    displayHome();
+  });
 });
