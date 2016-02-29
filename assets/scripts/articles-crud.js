@@ -1,55 +1,54 @@
 'use strict';
-const apiAuth = require('./api-auth'); //login baseUrl
+const apiAuth = require('./api-auth'); // to use for login baseUrl
 
- //Create new articles from logged in admin
- let createArticle = function(e){
-   e.preventDefault();
-   let formData = new FormData(e.target);
-   $.ajax({
-     url: apiAuth.myApp.baseUrl + '/articles',
-     method: 'POST',
-     headers: {
-       Authorization: 'Token token=' + apiAuth.myApp.user.token,
-     },
-     data:formData
-   })
-   .done(function(data){
-     console.log(data);
-   })
-   .fail(function(jqxhr) {
-     console.error(jqxhr);
-   });
- };
+//Create new articles from logged in admin
+let createArticle = function(e){
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  $.ajax({
+    url: apiAuth.myApp.baseUrl + '/articles',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + apiAuth.myApp.user.token,
+    },
+    processData: false,
+    contentType: false,
+    data:formData
+  })
+  .done(function(data){
+    console.log(data);
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
+let articleId;
+let getArticleId = function(e){
+  articleId = $(e.target).attr('data-d');
+  console.log(articleId);
+};
 
- // $('#edit-article').on('submit', function(e) {
- //   console.log("editing article");
- //   e.preventDefault();
- //   let updateArticle = function(title, author, body) {
- //   $.ajax({
- //     url: myApp.baseUrl + '/articles/' + myApp.article.id,
- //     method: 'PATCH',
- //     headers: {
- //       Authorization: 'Token token=' + myApp.user.token,
- //     },
- //    //  contentType: false,
- //    //  processData: false,
- //     data: {
- //       "article": {
- //         "title":title,
- //         "author":author,
- //         "body":body,
- //       }
- //     }
- //   }).done(function(data) {
- //     // myApp.article = data.article;
- //     console.log(data);
- //   }).fail(function(jqxhr) {
- //     console.error(jqxhr);
- //     alert('Uh Oh');
- //   });
- // });
- // }
+let editArticle = function(e, i){
+  e.preventDefault();
+  let article = new FormData(e.target);
+  $.ajax({
+    url: apiAuth.myApp.baseUrl + '/articles/' + i,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + apiAuth.myApp.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: article
+  }).done(function(data) {
+    console.log(data);
+    apiAuth.getArticles();
+  }).fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
 
 
 
@@ -60,5 +59,6 @@ $(document).ready(() => {
 });
 
 module.exports = {
- createArticle
+  createArticle,
+  editArticle
 };

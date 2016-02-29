@@ -6,5 +6,7 @@
 <p>{{body}}</p>
 {{#each articles}} {{>article}} {{/each}}
 
-<button class="edit-button">Edit </button>
+<button type="button" id="test" class="btn btn-default edit-article" data-toggle="modal" data-target="#edit-article-modal" data-edit-id="{{id}}">Edit</button>
+<button type="button" id="test" class="btn btn-warning delete-article" data-id="{{id}}">Delete</button>
+
 </div>

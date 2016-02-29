@@ -38,8 +38,14 @@ let clear = function(){
  $('.content').empty();
 };
 
-
+//CRUD submit actions
 $('#create-article').on('submit', articleCrud.createArticle);
+// $('#edit-article').on('submit', articleCrud.editArticle);
+
+$('.content').on('click', '.edit-article', articleCrud.getArticleId);
+$('#edit-article').on('submit', function(e) {
+  articleCrud.editArticle(e, articleCrud.getArticleId);
+});
 
 
 $(document).ready(function(){

@@ -92,3 +92,7 @@ $(document).ready(() => {
     });
   });
 });
+
+module.exports = {
+  myApp
+};
