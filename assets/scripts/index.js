@@ -3,6 +3,7 @@
 // var example = require('./example');
 // use require without a reference to ensure a file is bundled
 require('./example');
+
 require('./api-auth'); //login
 const articleCrud = require('./articles-crud');  //front end crud
 
@@ -41,21 +42,20 @@ let clear = function(){
 };
 
 //CRUD submit actions
-$('#create-article').on('submit', articleCrud.createArticle);
-// $('#edit-article').on('submit', articleCrud.editArticle);
+//Create
+// $('#create-article').on('submit', getArticles, articleCrud.createArticle);
+//Update
+$('.content').on('click', '.edit-article', articleCrud.getArticleId);
+$('#edit-article').on('submit', function(e) {
+  articleCrud.editArticle(e, articleCrud.articleID);
+});
+//Delete
+// $('.content').on('click', '.delete-article', articleCrud.deleteArticle);
 
 // $('.content').on('click', '.edit-article', $(e.target).attr('data-edit-id'));
 // $('#edit-article').on('submit', function(e) {
 //   articleCrud.editArticle(e);
 // });
-
-
-$('.content').on('click', '.edit-article', articleCrud.getArticleId);
-$('#edit-article').on('submit', function(e) {
-  articleCrud.editArticle(e, articleCrud.articleID);
-});
-
-//$('.content').on('click', '.delete-article', articleCrud.deleteArticle);
 
 
 $(document).ready(function(){

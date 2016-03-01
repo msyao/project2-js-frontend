@@ -8,11 +8,14 @@ const myApp = {
 
 $(document).ready(() => {
   $('.change-password-nav').hide();
-  $('.sign-out-nav').hide();
   $('.create-tab').hide();
+  $('.sign-out-nav').hide();
+
+
   //Create new user from form id="sign-up"
   $('#sign-up').on('submit', function(e) {
     e.preventDefault();
+    $('#sign-up-modal').modal('hide');
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-up',
@@ -31,6 +34,7 @@ $(document).ready(() => {
 //Signs in registered user
   $('#sign-in').on('submit', function(e) {
     e.preventDefault();
+    $('#sign-in-modal').modal('hide');
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-in',
@@ -54,6 +58,7 @@ $(document).ready(() => {
   //Change password of currently logged-in user
   $('#change-password').on('submit', function(e) {
     e.preventDefault();
+    $('#change-password-modal').modal('hide');
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/change-password/' + myApp.user.id,
