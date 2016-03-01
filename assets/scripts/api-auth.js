@@ -10,6 +10,7 @@ $(document).ready(() => {
   $('.change-password-nav').hide();
   $('.create-tab').hide();
   $('.sign-out-nav').hide();
+  $('.alert-success').hide();
 
 
 
