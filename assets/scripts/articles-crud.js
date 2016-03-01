@@ -35,7 +35,10 @@ let getArticleId = function(e) {
 // Edit and update article
 let editArticle = function (e) {
   e.preventDefault();
-  console.log('Edit Button Works');
+  if (!apiAuth.myApp.user) {
+    console.error('Must log in to make changes!');
+    return;
+  }
   $.ajax({
     url: apiAuth.myApp.baseUrl + '/articles/' + articleId,
     method: 'PATCH',
@@ -61,7 +64,7 @@ $('.content').on('click', '.delete-article', function(e) {
   alert('Are you sure you want to delete?');
   console.log('Delete Button Works');
   if (!apiAuth.myApp.user) {
-    console.error('You can\'t delete!');
+    console.error('Must log in to make changes!');
     return;
   }
   $.ajax({
@@ -76,6 +79,7 @@ $('.content').on('click', '.delete-article', function(e) {
     console.error(jqxhr);
   });
 });
+
 
 $(document).ready(() => {
 

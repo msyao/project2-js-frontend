@@ -41,14 +41,18 @@ let clear = function(){
  $('.content').empty();
 };
 
-//CRUD submit actions
-//Create
-// $('#create-article').on('submit', getArticles, articleCrud.createArticle);
+//CRUD
 //Update
 $('.content').on('click', '.edit-article', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
   articleCrud.editArticle(e, articleCrud.articleID);
 });
+
+// $('.content').on('click', '.delete-article', articleCrud.getArticleId);
+// $('#delete-article-modal').on('submit', function(e) {
+//   articleCrud.deleteArticle(e, articleCrud.$(e.target).attr('data-id'));
+// });
+
 //Delete
 // $('.content').on('click', '.delete-article', articleCrud.deleteArticle);
 
