@@ -1,7 +1,9 @@
 'use strict';
 const apiAuth = require('./api-auth'); // to use for login baseUrl
-const indexJs = require('./index')
+const indexJs = require('./index');
 
+
+// Create Article from tab after sign-in
 $('#create-article').on('submit', indexJs.getArticles, function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
@@ -23,12 +25,14 @@ $('#create-article').on('submit', indexJs.getArticles, function(e) {
   });
 });
 
+// Get the article id from handlebars
 let articleId; //global variable
 let getArticleId = function(e) {
   articleId = $(e.target).attr('data-id');
   console.log('Article ID is',articleId);
 };
 
+// Edit and update article
 let editArticle = function (e) {
   e.preventDefault();
   console.log('Edit Button Works');
@@ -50,14 +54,14 @@ let editArticle = function (e) {
 };
 
 
-
-// articles url only works with e.target
+// Delete articles
+// URL can only get article id from e.target vs articleId variable in edit
 $('.content').on('click', '.delete-article', function(e) {
   e.preventDefault();
   alert('Are you sure you want to delete?');
   console.log('Delete Button Works');
   if (!apiAuth.myApp.user) {
-    console.error('Wrong!');
+    console.error('You can\'t delete!');
     return;
   }
   $.ajax({

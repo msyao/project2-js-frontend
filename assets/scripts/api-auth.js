@@ -12,6 +12,7 @@ $(document).ready(() => {
   $('.sign-out-nav').hide();
 
 
+
   //Create new user from form id="sign-up"
   $('#sign-up').on('submit', function(e) {
     e.preventDefault();
