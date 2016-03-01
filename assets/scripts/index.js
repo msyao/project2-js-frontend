@@ -33,34 +33,17 @@ let getArticles = function(){
   });
 };
 
-
-
-
 //clear content on page
 let clear = function(){
  $('.content').empty();
 };
 
-//CRUD
-//Update
+//CRUD Edit
+//Update on click of handlebars button calls getArticleId function
 $('.content').on('click', '.edit-article', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
   articleCrud.editArticle(e, articleCrud.articleID);
 });
-
-// $('.content').on('click', '.delete-article', articleCrud.getArticleId);
-// $('#delete-article-modal').on('submit', function(e) {
-//   articleCrud.deleteArticle(e, articleCrud.$(e.target).attr('data-id'));
-// });
-
-//Delete
-// $('.content').on('click', '.delete-article', articleCrud.deleteArticle);
-
-// $('.content').on('click', '.edit-article', $(e.target).attr('data-edit-id'));
-// $('#edit-article').on('submit', function(e) {
-//   articleCrud.editArticle(e);
-// });
-
 
 $(document).ready(function(){
   $('.articles-tab').on('click',function(){

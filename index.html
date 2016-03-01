@@ -9,7 +9,7 @@
 </head>
 <div class="container-fluid">
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -26,198 +26,199 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="sign-up-nav"><a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#" class="user-email-login" > </a></li>
+        <li class="sign-up-nav"><a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
         <li class="sign-in-nav"><a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
         <li class="change-password-nav"><a href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
         <li class="sign-out-nav"><a href="#" data-toggle="modal" data-target="#sign-out-modal"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
       </ul>
+    </div>
+  </nav>
+
+  <!-- Sign Up Modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="signup-label">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form id='sign-up'>
+            <fieldset class="form-group">
+              <label for="credentials[email]">Email</label>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="credentials[password]">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+            </fieldset>
+            <input type="submit" name="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Sign Up Modal End-->
+
+  <!-- Sign In Modal -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="signin-label">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <form id='sign-in'>
+            <fieldset class="form-group">
+              <label for="credentials[email]">Email</label>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="credentials[password]">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+            </fieldset>
+            <input type="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Sign In Modal End -->
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="changepw-label">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <form id='change-password'>
+            <fieldset class="form-group">
+              <label for="passwords[old]">Old Password</label>
+              <input name="passwords[old]" type="password" class="form-control" placeholder="Old Password">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="passwords[new]">New Password</label>
+              <input name="passwords[new]" type="password" class="form-control" placeholder="New Password">
+            </fieldset>
+            <input type="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>  <!-- Change Password Modal End -->
+
+  <!--Sign Out Modal-->
+  <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="sign-out-label">Are you sure you want to sign out?</h4>
+        </div>
+        <div class="modal-body">
+          <button type="button" class="btn btn-primary" id="sign-out-button" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div> <!--Sign Out Modal End-->
+
+  <div class="content">
+    <!-- Handlebars articles content ----------------------------->
   </div>
-</nav>
 
-      <!-- Sign Up Modal -->
-      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="signup-label">Sign Up</h4>
-            </div>
-            <div class="modal-body">
-              <form id='sign-up'>
-                <fieldset class="form-group">
-                  <label for="credentials[email]">Email</label>
-                  <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="credentials[password]">Password</label>
-                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
-                </fieldset>
-                <input type="submit" name="submit" class="btn btn-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-            </div>
+
+
+  <!-- CRUD front end modals -------------------------------------------------------------->
+  <div class="crud-modals">
+
+    <!-- Create article modal ----->
+    <div class="modal fade" id="create-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="create-article-label">Create Article</h4>
           </div>
-        </div>
-      </div> <!-- Sign Up Modal End-->
-
-      <!-- Sign In Modal -->
-      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="signin-label">Sign In</h4>
-            </div>
-            <div class="modal-body">
-              <form id='sign-in'>
-                <fieldset class="form-group">
-                  <label for="credentials[email]">Email</label>
-                  <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="credentials[password]">Password</label>
-                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
-                </fieldset>
-                <input type="submit" class="btn btn-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> <!-- Sign In Modal End -->
-
-      <!-- Change Password Modal -->
-      <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="changepw-label">Change Password</h4>
-            </div>
-            <div class="modal-body">
-              <form id='change-password'>
-                <fieldset class="form-group">
-                  <label for="passwords[old]">Old Password</label>
-                  <input name="passwords[old]" type="password" class="form-control" placeholder="Old Password">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="passwords[new]">New Password</label>
-                  <input name="passwords[new]" type="password" class="form-control" placeholder="New Password">
-                </fieldset>
-                <input type="submit" class="btn btn-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>  <!-- Change Password Modal End -->
-
-      <!--Sign Out Modal-->
-      <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="sign-out-label">Are you sure you want to sign out?</h4>
-            </div>
-            <div class="modal-body">
-              <button type="button" class="btn btn-primary" id="sign-out-button" data-dismiss="modal">Yes</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-            </div>
-          </div>
-        </div>
-      </div> <!--Sign Out Modal End-->
-
-      <div class="content">
-        <!-- Handlebars articles content ----------------------------->
-      </div>
-
-
-
-      <!-- CRUD front end modals -------------------------------------------------------------->
-      <div class="crud-modals">
-
-      <!-- Create article modal ----->
-      <div class="modal fade" id="create-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="create-article-label">Create Article</h4>
-            </div>
-            <div class="modal-body">
-              <form id='create-article'>
-                <fieldset class="form-group">
-                  <label for="title">Title</label>
-                  <input name="article[title]" type="text" class="form-control" placeholder="Title">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="author">Author</label>
-                  <input name="article[author]" type="text" class="form-control" placeholder="Author">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="body">Body</label>
-                  <textarea name="article[body]" class="form-control" id="body" rows="6" placeholder="Ham It Up!"></textarea>
-                </fieldset>
-                <input type="submit" class="btn btn-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-            </div>
+          <div class="modal-body">
+            <form id='create-article'>
+              <fieldset class="form-group">
+                <label for="title">Title</label>
+                <input name="article[title]" type="text" class="form-control" placeholder="Title">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="author">Author</label>
+                <input name="article[author]" type="text" class="form-control" placeholder="Author">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="body">Body</label>
+                <textarea name="article[body]" class="form-control" id="body" rows="6" placeholder="Ham It Up!"></textarea>
+              </fieldset>
+              <input type="submit" class="btn btn-primary">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </form>
           </div>
         </div>
       </div>
-      <!-- Edit article modal ----->
-      <div class="modal fade" id="edit-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Edit Article</h4>
-            </div>
-            <div class="modal-body">
-              <form id='edit-article'>
-                <fieldset class="form-group">
-                  <label for="title">Title</label>
-                  <input name="article[title]" type="text" class="form-control" placeholder="Edit Title">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="author">Author</label>
-                  <input name="article[author]" type="text" class="form-control" placeholder="Edit Author">
-                </fieldset>
-                <fieldset class="form-group">
-                  <label for="body">Body</label>
-                  <textarea name="article[body]" class="form-control" id="body" rows="6" placeholder="Ham EdIt Up!"></textarea>
-                </fieldset>
-                <input type="submit" class="btn btn-primary edit-article-btn">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-              </div>
-            </div>
+    </div>
+    <!-- Edit article modal ----->
+    <div class="modal fade" id="edit-article-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Edit Article</h4>
+          </div>
+          <div class="modal-body">
+            <form id='edit-article'>
+              <fieldset class="form-group">
+                <label for="title">Title</label>
+                <input name="article[title]" type="text" class="form-control" placeholder="Edit Title">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="author">Author</label>
+                <input name="article[author]" type="text" class="form-control" placeholder="Edit Author">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="body">Body</label>
+                <textarea name="article[body]" class="form-control" id="body" rows="6" placeholder="Ham EdIt Up!"></textarea>
+              </fieldset>
+              <input type="submit" class="btn btn-primary edit-article-btn">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </form>
           </div>
         </div>
-
-        <!--Delete Modal-->
-        
-      </div><!-- end of CRUD modals ----------------------------------------------------------->
-
-
-
-
-
-
-
-
-      <div class="footer navbar-fixed-bottom">
-        <footer class="footer">
-          <p class="text-muted">Footer</p>
-        </footer>
       </div>
+    </div>
+
+    <!--end of Edit Modal-->
+
+  </div><!-- end of CRUD modals ----------------------------------------------------------->
 
 
-  </div><!-- container fluid end -->
 
 
 
 
-    </body>
+
+
+  <div class="footer navbar-fixed-bottom">
+    <footer class="footer">
+      <p class="text-muted footer-link"><a href="https://github.com/msyao-github/project2-js-frontend" >msyao-github</a></p>
+    </footer>
+  </div>
+
+
+</div><!-- container fluid end -->
+
+
+
+
+</body>
 </html>

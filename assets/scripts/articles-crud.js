@@ -33,7 +33,7 @@ let getArticleId = function(e) {
 };
 
 // Edit and update article
-let editArticle = function (e) {
+let editArticle = function(e) {
   e.preventDefault();
   if (!apiAuth.myApp.user) {
     console.error('Must log in to make changes!');

@@ -1,3 +1,13 @@
 body {
   font-family: $helvetica;
 }
+
+
+.footer-link a {
+  color: $black;
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  color: $gold;
+}

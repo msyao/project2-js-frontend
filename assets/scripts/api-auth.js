@@ -32,6 +32,11 @@ $(document).ready(() => {
     });
   });
 
+//show user email on navbar
+let showUser = function (){
+  $( '.user-email-login' ).html(myApp.user.email);
+};
+
 //Signs in registered user
   $('#sign-in').on('submit', function(e) {
     e.preventDefault();
@@ -46,6 +51,7 @@ $(document).ready(() => {
     }).done(function(data) {
       myApp.user = data.user;
       console.log(data);
+      showUser();
       $('.change-password-nav').show();
       $('.create-tab').show();
       $('.sign-in-nav').hide();
@@ -55,6 +61,7 @@ $(document).ready(() => {
       console.error(jqxhr);
     });
   });
+
 
   //Change password of currently logged-in user
   $('#change-password').on('submit', function(e) {
@@ -93,6 +100,7 @@ $(document).ready(() => {
       $('.sign-in-nav').show();
       $('.sign-out-nav').hide();
       $('.sign-up-nav').show();
+      $( '.user-email-login' ).hide();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
