@@ -33,6 +33,7 @@ let getArticles = function(){
   });
 };
 
+
 //clear content on page
 let clear = function(){
  $('.content').empty();
