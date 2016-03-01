@@ -7,9 +7,17 @@ require('./api-auth'); //login
 const articleCrud = require('./articles-crud');  //front end crud
 
 //display content in home tab
-let displayHome = function(response){
+let displayHome = function(){
   console.log('displayHome works');
   $('.content').html();
+};
+
+//display articles in articles tab
+let displayArticles = function(response){
+  console.log('displayArticles works');
+  let articles = response.articles;
+  let articleListingTemplate = require('./article-listing.handlebars');
+  $('.content').html(articleListingTemplate({articles}));
 };
 
 //get articles in articles tab
@@ -24,13 +32,7 @@ let getArticles = function(){
   });
 };
 
-//display articles in articles tab
-let displayArticles = function(response){
-  console.log('displayArticles works');
-  let articles = response.articles;
-  let articleListingTemplate = require('./article-listing.handlebars');
-  $('.content').html(articleListingTemplate({articles}));
-};
+
 
 
 //clear content on page
@@ -42,10 +44,18 @@ let clear = function(){
 $('#create-article').on('submit', articleCrud.createArticle);
 // $('#edit-article').on('submit', articleCrud.editArticle);
 
+// $('.content').on('click', '.edit-article', $(e.target).attr('data-edit-id'));
+// $('#edit-article').on('submit', function(e) {
+//   articleCrud.editArticle(e);
+// });
+
+
 $('.content').on('click', '.edit-article', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
-  articleCrud.editArticle(e, articleCrud.getArticleId);
+  articleCrud.editArticle(e, articleCrud.articleID);
 });
+
+//$('.content').on('click', '.delete-article', articleCrud.deleteArticle);
 
 
 $(document).ready(function(){
