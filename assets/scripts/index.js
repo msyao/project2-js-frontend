@@ -3,8 +3,7 @@
 // var example = require('./example');
 // use require without a reference to ensure a file is bundled
 require('./example');
-
-require('./api-auth'); //login
+const apiAuth = require('./api-auth'); //login
 const articleCrud = require('./articles-crud');  //front end crud
 
 //display content in home tab
@@ -24,7 +23,7 @@ let displayArticles = function(response){
 //get articles in articles tab
 let getArticles = function(){
   $.ajax({
-    url: "http://localhost:3000/articles",
+    url: apiAuth.myApp.baseUrl + '/articles/',
     method: 'GET',
     dataType: 'json'
   }).done(function(articles){
