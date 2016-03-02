@@ -22,5 +22,5 @@ I used bootstrap, handlebars, Ruby on Rails and javascript to build this app.
 - Create admin user to edit and delete any user's articles
 - Use handlebars to prefill fields when user click to edit content
 - Be able to display all articles and filter for the user's own contributions
-- Give users ability to comment on articles
+- Edit style of web app to give more fluid and engaging feel
 - Use [Paperclip](https://devcenter.heroku.com/articles/paperclip-s3) Rails gem to implement file attachement functionality for users to upload images

@@ -11,9 +11,6 @@ $(document).ready(() => {
   $('.create-tab').hide();
   $('.sign-out-nav').hide();
   $('.alert-success').hide();
-  $('.crud-buttons').hide();
-
-
 
 
   //Create new user from form id="sign-up"

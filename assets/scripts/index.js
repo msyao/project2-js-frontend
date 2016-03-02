@@ -35,7 +35,7 @@ let getArticles = function(){
 
 //clear content on page
 let clear = function(){
- $('.content').empty();
+  $('.content').empty();
 };
 
 //CRUD Edit
@@ -48,9 +48,25 @@ $('#edit-article').on('submit', function(e) {
 $(document).ready(function(){
   $('.articles-tab').on('click',function(){
     getArticles();
+    $('.hero-unit').hide();
   });
   $('.home-tab').on('click',function(){
     clear();
+    $('.hero-unit').show();
     displayHome();
+  });
+  $(window).scroll(function (){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollup').fadeIn();
+    } else {
+      $('.scrollup').fadeOut();
+    }
+  });
+
+  $('.scrollup').click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 600);
+    return false;
   });
 });

@@ -3,11 +3,9 @@
 
 <div>
 
-  {{#each articles}} {{>article}} {{/each}}
   <p>{{body}}</p>
+  {{#each articles}} {{>article}} {{/each}}
 
-  <div class="crud-buttons">
-    <button type="button" id="test" class="btn btn-default edit-article" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
-    <button type="button" id="test" class="btn btn-warning delete-article" data-id="{{id}}">Delete</button>
-  </div>
+  <button type="button" id="test" class="btn btn-default edit-article" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
+  <button type="button" id="test" class="btn btn-warning delete-article" data-id="{{id}}">Delete</button>
 </div>
