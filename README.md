@@ -1,6 +1,8 @@
 # HamEdit Up
 
 **HamEdit Up** is a single-page-app that allows logged in users to create, edit and delete their own article posts.
+Here is the link to the [back-end repo: ](https://github.com/msyao-github/project2-rails-api)
+
 
 ### User Story
 
