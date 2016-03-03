@@ -38,21 +38,21 @@ let clear = function(){
   $('.content').empty();
 };
 
-//CRUD Edit
-//Update on click of handlebars button calls getArticleId function
+//CRUD Edit --- Update on click of handlebars button calls getArticleId function
 $('.content').on('click', '.edit-article', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
   articleCrud.editArticle(e, articleCrud.articleID);
 });
 
+
 $(document).ready(function(){
   $('.articles-tab').on('click',function(){
     getArticles();
-    $('.hero-unit').hide();
+    $('.jumbotron').hide();
   });
   $('.home-tab').on('click',function(){
     clear();
-    $('.hero-unit').show();
+    $('.jumbotron').show();
     displayHome();
   });
   $(window).scroll(function (){
@@ -62,7 +62,6 @@ $(document).ready(function(){
       $('.scrollup').fadeOut();
     }
   });
-
   $('.scrollup').click(function () {
     $("html, body").animate({
       scrollTop: 0

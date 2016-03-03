@@ -61,7 +61,6 @@ let editArticle = function(e) {
 // URL can only get article id from e.target vs articleId variable in edit
 $('.content').on('click', '.delete-article', function(e) {
   e.preventDefault();
-  alert('Are you sure you want to delete?');
   console.log('Delete Button Works');
   if (!apiAuth.myApp.user) {
     console.error('Must log in to make changes!');

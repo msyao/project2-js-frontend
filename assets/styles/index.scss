@@ -9,34 +9,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 0 10px;
 }
 
-
-.hero-unit {
-  -webkit-border-radius: 6px;
-  background-color: $herocolor;
-  color: inherit;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  margin-top: -4em;
-  padding: 60px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+.jumbotron {
+  margin: -5em 2em 0;
 }
 
-.hero-unit h1 {
-  color: inherit;
-  font-size: 60px;
-  letter-spacing: -1px;
-  line-height: 1;
+.delete-modal-class {
+  margin-top: -250px;
+  top: 50%;
 }
-
-
 
 .content {
   margin: 5em;
   margin-bottom: 10em;
 }
-
 
 .crud-modals {
   margin-bottom: 10em;
