@@ -41,8 +41,14 @@ let clear = function(){
 //CRUD Edit --- Update on click of handlebars button calls getArticleId function
 $('.content').on('click', '.edit-article', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
-  articleCrud.editArticle(e, articleCrud.articleID);
+  articleCrud.editArticle(e);
 });
+
+// $('.content').on('click', '.delete-article', articleCrud.getArticleId);
+// $('#delete-article').on('submit',function(e){
+//   articleCrud.deleteArticle(e);
+// });
+
 
 
 $(document).ready(function(){

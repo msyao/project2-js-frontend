@@ -58,7 +58,6 @@ let editArticle = function(e) {
 
 
 // Delete articles
-// URL can only get article id from e.target vs articleId variable in edit
 $('.content').on('click', '.delete-article', function(e) {
   e.preventDefault();
   console.log('Delete Button Works');
@@ -87,4 +86,5 @@ $(document).ready(() => {
 module.exports = {
   editArticle,
   getArticleId,
+  // deleteArticle
 };

@@ -12,36 +12,38 @@ $(document).ready(() => {
   $('.sign-out-nav').hide();
   $('.alert-success').hide();
 
-//show user email on navbar
-let showUser = function (){
-  $( '.user-email-login' ).html(myApp.user.email);
-};
+  //show user email on navbar
+  let showUser = function (){
+    $( '.user-email-login' ).html(myApp.user.email);
+  };
 
-let hideModal = function (){
-  $('#sign-in-modal').modal('hide');
-  $('#change-password-modal').modal('hide');
-  $('#sign-up-modal').modal('hide');
-};
+  //hides modal after login action
+  let hideModal = function (){
+    $('#sign-in-modal').modal('hide');
+    $('#change-password-modal').modal('hide');
+    $('#sign-up-modal').modal('hide');
+  };
 
-//Create new user from form id="sign-up"
-$('#sign-up').on('submit', function(e) {
-  e.preventDefault();
-  hideModal();
-  var formData = new FormData(e.target);
-  $.ajax({
-    url: myApp.baseUrl + '/sign-up',
-    method: 'POST',
-    contentType: false,
-    processData: false,
-    data: formData,
-  }).done(function(data) {
-    console.log(data);
-  }).fail(function(jqxhr) {
-    console.error(jqxhr);
+  //Create new user from form id="sign-up"
+  $('#sign-up').on('submit', function(e) {
+    e.preventDefault();
+    hideModal();
+    var formData = new FormData(e.target);
+    $.ajax({
+      url: myApp.baseUrl + '/sign-up',
+      method: 'POST',
+      contentType: false,
+      processData: false,
+      data: formData,
+    }).done(function(data) {
+      console.log(data);
+      // $('#sign-up-modal').modal('hide');
+    }).fail(function(jqxhr) {
+      console.error(jqxhr);
+    });
   });
-});
 
-//Signs in registered user
+  //Signs in registered user
   $('#sign-in').on('submit', function(e) {
     e.preventDefault();
     hideModal();
@@ -66,6 +68,7 @@ $('#sign-up').on('submit', function(e) {
     });
   });
 
+
   //Change password of currently logged-in user
   $('#change-password').on('submit', function(e) {
     e.preventDefault();
@@ -82,12 +85,11 @@ $('#sign-up').on('submit', function(e) {
       data: formData,
     }).done(function(data) {
       console.log(data);
+      // $('#change-password-modal').modal('hide');
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
   });
-
-
 
   //Log out
   $('#sign-out-button').on('click', function(e) {
@@ -105,16 +107,13 @@ $('#sign-up').on('submit', function(e) {
       $('.sign-out-nav').hide();
       $('.sign-up-nav').show();
       $( '.user-email-login' ).hide();
+      $( '.create-tab' ).hide();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
   });
 });
 
-
-
-
-
 module.exports = {
-  myApp,
+  myApp
 };
