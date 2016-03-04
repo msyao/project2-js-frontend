@@ -58,7 +58,7 @@ let editArticle = function(e) {
 
 
 // Delete articles
-$('.content').on('click', '.delete-article', function(e) {
+$('.content').on('click', '.delete-article-button', function(e) {
   e.preventDefault();
   console.log('Delete Button Works');
   if (!apiAuth.myApp.user) {

@@ -1,12 +1,8 @@
 <h1>{{../helpers/title}} <small>{{./title}}</small></h1>
 <h5>{{author}}</h5>
 
-<div>
 
-  <p>{{body}}</p>
-  {{#each articles}} {{>article}} {{/each}}
-  <button type="button" class="btn btn-default edit-article crud-buttons" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
-  <button type="button" class="btn btn-warning delete-article crud-buttons" data-toggle="modal" data-target="#delete-article-modal" data-id="{{id}}">Delete</button>
-
-
-</div>
+<p>{{body}}</p>
+{{#each articles}} {{>article}} {{/each}}
+<button type="button" class="btn btn-default edit-article-button crud-buttons" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
+<button type="button" class="btn btn-warning delete-article-button crud-buttons" data-toggle="modal" data-target="#delete-article-modal" data-id="{{id}}">Delete</button>

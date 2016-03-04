@@ -20,6 +20,7 @@ let displayArticles = function(response){
   $('.content').html(articleListingTemplate({articles}));
 };
 
+
 //get articles in articles tab
 let getArticles = function(){
   $.ajax({
@@ -39,15 +40,10 @@ let clear = function(){
 };
 
 //CRUD Edit --- Update on click of handlebars button calls getArticleId function
-$('.content').on('click', '.edit-article', articleCrud.getArticleId);
+$('.content').on('click', '.edit-article-button', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
   articleCrud.editArticle(e);
 });
-
-// $('.content').on('click', '.delete-article', articleCrud.getArticleId);
-// $('#delete-article').on('submit',function(e){
-//   articleCrud.deleteArticle(e);
-// });
 
 
 
