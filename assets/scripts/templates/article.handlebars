@@ -4,7 +4,7 @@
 
 <p>{{body}}</p>
 {{#each articles}} {{>article}} {{/each}}
-<p class="logged-in-option" hidden>
-<button type="button" class="logged-in-option btn btn-default edit-article-button crud-buttons" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
-<button type="button" class="logged-in-option btn btn-warning delete-article-button crud-buttons" data-toggle="modal" data-target="#delete-article-modal" data-id="{{id}}">Delete</button>
+<p class="logged-in-button" hidden>
+<button type="button" class="logged-in-button btn btn-default edit-article-button crud-buttons" data-toggle="modal" data-target="#edit-article-modal" data-id="{{id}}">Edit</button>
+<button type="button" class="logged-in-button btn btn-warning delete-article-button crud-buttons" data-toggle="modal" data-target="#delete-article-modal" data-id="{{id}}">Delete</button>
 </p>

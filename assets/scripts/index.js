@@ -16,8 +16,11 @@ let displayHome = function(){
 let displayArticles = function(response){
   console.log('displayArticles works');
   let articles = response.articles;
-  let articleListingTemplate = require('./article-listing.handlebars');
+  let articleListingTemplate = require('./templates/article-listing.handlebars');
   $('.content').html(articleListingTemplate({articles}));
+  if (apiAuth.myApp.user) {
+    $('.logged-in-button').show();
+  }
 };
 
 

@@ -12,23 +12,25 @@ let pageOnLoad = function (){
   $('.create-tab').hide();
   $('.sign-out-nav').hide();
   $('.alert-success').hide();
+
 };
 
 let signOut = function (){
   $('.change-password-nav').hide();
   $('.sign-in-nav').show();
-  $('.logged-in-button').hide();
   $('.sign-out-nav').hide();
   $('.sign-up-nav').show();
   $( '.user-email-login' ).hide();
   $( '.create-tab' ).hide();
+  $('.logged-in-button').hide();
 };
 
 let signIn = function () {
   $('.change-password-nav').show();
-  $('.create-tab').show();
-  $('.sign-in-nav').hide();
   $('.logged-in-button').show();
+  $('.create-tab').show();
+  $('.logged-in-button').show();
+  $('.sign-in-nav').hide();
   $('.sign-out-nav').show();
   $('.sign-up-nav').hide();
 };
