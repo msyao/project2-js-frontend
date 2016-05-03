@@ -6,11 +6,11 @@ const myApp = {
   baseUrl: 'https://pacific-tor-92467.herokuapp.com/',
 };
 
+const uiDisplay = require('./ui-display');
+
+
 $(document).ready(() => {
-  $('.change-password-nav').hide();
-  $('.create-tab').hide();
-  $('.sign-out-nav').hide();
-  $('.alert-success').hide();
+  uiDisplay.pageOnLoad();
 
   //show user email on navbar
   let showUser = function (){
@@ -18,16 +18,12 @@ $(document).ready(() => {
   };
 
   //hides modal after login action
-  let hideModal = function (){
-    $('#sign-in-modal').modal('hide');
-    $('#change-password-modal').modal('hide');
-    $('#sign-up-modal').modal('hide');
-  };
+  uiDisplay.hideModal();
 
   //Create new user from form id="sign-up"
   $('#sign-up').on('submit', function(e) {
     e.preventDefault();
-    hideModal();
+    uiDisplay.hideModal();
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-up',
@@ -37,7 +33,6 @@ $(document).ready(() => {
       data: formData,
     }).done(function(data) {
       console.log(data);
-      // $('#sign-up-modal').modal('hide');
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
@@ -46,7 +41,7 @@ $(document).ready(() => {
   //Signs in registered user
   $('#sign-in').on('submit', function(e) {
     e.preventDefault();
-    hideModal();
+    uiDisplay.hideModal();
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/sign-in',
@@ -58,11 +53,7 @@ $(document).ready(() => {
       myApp.user = data.user;
       console.log(data);
       showUser();
-      $('.change-password-nav').show();
-      $('.create-tab').show();
-      $('.sign-in-nav').hide();
-      $('.sign-out-nav').show();
-      $('.sign-up-nav').hide();
+      uiDisplay.signIn();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
@@ -72,7 +63,7 @@ $(document).ready(() => {
   //Change password of currently logged-in user
   $('#change-password').on('submit', function(e) {
     e.preventDefault();
-    hideModal();
+    uiDisplay.hideModal();
     var formData = new FormData(e.target);
     $.ajax({
       url: myApp.baseUrl + '/change-password/' + myApp.user.id,
@@ -102,12 +93,7 @@ $(document).ready(() => {
       },
     }).done(function() {
       console.log("User Logged Out");
-      $('.change-password-nav').hide();
-      $('.sign-in-nav').show();
-      $('.sign-out-nav').hide();
-      $('.sign-up-nav').show();
-      $( '.user-email-login' ).hide();
-      $( '.create-tab' ).hide();
+      uiDisplay.signOut();
     }).fail(function(jqxhr) {
       console.error(jqxhr);
     });
