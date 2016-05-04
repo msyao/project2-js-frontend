@@ -49,13 +49,19 @@ let editArticle = function(e) {
     processData: false,
     data: new FormData(e.target)
   }).done(function(data) {
-    console.log('Edit Article Works');
     console.log(data);
   }).fail(function(jqxhr) {
     console.error(jqxhr);
   });
 };
 
+// Populate update modal with text
+let fillUpdate = function(response) {
+  let article = response.articles;
+  $('#edit-title').val(article.title);
+  $('#edit-author').val(article.author);
+  $('.edit-body').val(article.body);
+};
 
 // Delete articles
 $('.content').on('click', '.delete-article-button', function(e) {
@@ -79,8 +85,15 @@ $('.content').on('click', '.delete-article-button', function(e) {
 });
 
 
-$(document).ready(() => {
-
+$(document).on('click','.edit-article-button', function(){
+  $('#edit-article-modal').modal('show');
+  $.ajax({
+    url: apiAuth.myApp.baseUrl + '/articles/' + articleId,
+    method: 'GET',
+    dataType: 'json'
+  }).done(function(article){
+    fillUpdate(article);
+  });
 });
 
 module.exports = {

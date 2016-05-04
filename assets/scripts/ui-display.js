@@ -1,21 +1,23 @@
 'use strict';
 
 //display content in home tab
-let displayHome = function(){
+let homeTab = function(){
   console.log('displayHome works');
   $('.content').html();
+  $('.jumbotron').show();
+  $('.sidebar-right').hide();
+  $('.content').empty();
+
 };
 
-//clear content on page
-let clearContent = function(){
-  $('.content').empty();
-};
 
 //hides modal after login action
 let hideModal = function (){
   $('#sign-in-modal').modal('hide');
   $('#change-password-modal').modal('hide');
   $('#sign-up-modal').modal('hide');
+  $('#create-article-modal').modal('hide');
+  $('#edit-article-modal').modal('hide');
 };
 
 let pageOnLoad = function (){
@@ -23,8 +25,16 @@ let pageOnLoad = function (){
   $('.create-tab').hide();
   $('.sign-out-nav').hide();
   $('.alert-success').hide();
+  $('.sidebar-right').hide();
 
 };
+
+let articleTab = function (){
+  $('.jumbotron').hide();
+  $('.sidebar-right').show();
+};
+
+
 
 let signOut = function (){
   $('.change-password-nav').hide();
@@ -47,8 +57,8 @@ let signIn = function () {
 };
 
 module.exports = {
-  displayHome,
-  clearContent,
+  homeTab,
+  articleTab,
   pageOnLoad,
   hideModal,
   signIn,

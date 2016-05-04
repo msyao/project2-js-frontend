@@ -129,10 +129,24 @@
     </div>
   </div> <!--Sign Out Modal End-->
 
-  <div class="content">
+  <div class="content col-sm-8 blog-main">
 
     <!-- Handlebars articles content ----------------------------->
+
   </div>
+    <div class="row sidebar-right">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Export</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+
 
 
 
@@ -190,17 +204,17 @@
             <form id='edit-article'>
               <fieldset class="form-group">
                 <label for="title">Title</label>
-                <input name="article[title]" type="text" class="form-control" placeholder="Edit Title">
+                <input name="article[title]" type="text" class="form-control" placeholder="Edit Title" id="edit-title" >
               </fieldset>
               <fieldset class="form-group">
                 <label for="author">Author</label>
-                <input name="article[author]" type="text" class="form-control" placeholder="Edit Author">
+                <input name="article[author]" type="text" class="form-control" placeholder="Edit Author" id="edit-author">
               </fieldset>
               <fieldset class="form-group">
                 <label for="body">Body</label>
-                <textarea name="article[body]" class="form-control" id="body" rows="6" placeholder="Ham EdIt Up!"></textarea>
+                <textarea name="article[body]" class="form-control edit-body" id="body" rows="6" placeholder="Ham EdIt Up!"></textarea>
               </fieldset>
-              <input type="submit" class="btn btn-warning edit-article-btn">
+              <input type="submit" class="btn btn-warning edit-article-btn" >
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </form>
           </div>

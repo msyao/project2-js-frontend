@@ -4,15 +4,17 @@
 // use require without a reference to ensure a file is bundled
 require('./example');
 const apiAuth = require('./api-auth'); //login
-const articleCrud = require('./articles-crud');  //front end crud
+const articleCrud = require('./articles-crud'); //front end crud
 const uiDisplay = require('./ui-display'); // ui display
 
 //display articles in articles tab
-let displayArticles = function(response){
+let displayArticles = function(response) {
   console.log('displayArticles works');
   let articles = response.articles;
   let articleListingTemplate = require('./templates/article-listing.handlebars');
-  $('.content').html(articleListingTemplate({articles}));
+  $('.content').html(articleListingTemplate({
+    articles
+  }));
   if (apiAuth.myApp.user) {
     $('.logged-in-button').show();
   }
@@ -20,12 +22,12 @@ let displayArticles = function(response){
 
 
 //get articles in articles tab
-let getArticles = function(){
+let getArticles = function() {
   $.ajax({
     url: apiAuth.myApp.baseUrl + '/articles/',
     method: 'GET',
     dataType: 'json'
-  }).done(function(articles){
+  }).done(function(articles) {
     displayArticles(articles);
     console.log(articles);
   });
@@ -36,28 +38,26 @@ let getArticles = function(){
 $('.content').on('click', '.edit-article-button', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
   articleCrud.editArticle(e);
+  uiDisplay.hideModal();
 });
 
 
-
-$(document).ready(function(){
-  $('.articles-tab').on('click',function(){
+$(document).ready(function() {
+  $('.articles-tab').on('click', function() {
     getArticles();
-    $('.jumbotron').hide();
+    uiDisplay.articleTab();
   });
-  $('.home-tab').on('click',function(){
-    uiDisplay.clearContent();
-    $('.jumbotron').show();
-    uiDisplay.displayHome();
+  $('.home-tab').on('click', function() {
+    uiDisplay.homeTab();
   });
-  $(window).scroll(function (){
+  $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
       $('.scrollup').fadeIn();
     } else {
       $('.scrollup').fadeOut();
     }
   });
-  $('.scrollup').click(function () {
+  $('.scrollup').click(function() {
     $("html, body").animate({
       scrollTop: 0
     }, 600);
