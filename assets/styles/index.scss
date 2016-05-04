@@ -27,12 +27,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-top: 12em;
 }
 
-hr {
-  height: 10px;
-	border: 0;
-  box-shadow: 0 10px 10px -10px $grey inset;
-
-}
 .crud-modals {
   margin-bottom: 10em;
 }
@@ -46,4 +40,20 @@ hr {
     padding: 2em;
     text-align: center;
   }
+}
+
+.author {
+  margin-left: 20px;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  margin-top: 10px;
+  padding: 17px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-clip: padding-box;
 }
