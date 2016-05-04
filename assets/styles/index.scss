@@ -57,3 +57,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-radius: 2px;
   background-clip: padding-box;
 }
+
+a {
+  color: $orange;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+a:hover {
+  color: $lightgold;
+  text-decoration: none;
+}
