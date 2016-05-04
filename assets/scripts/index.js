@@ -5,12 +5,7 @@
 require('./example');
 const apiAuth = require('./api-auth'); //login
 const articleCrud = require('./articles-crud');  //front end crud
-
-//display content in home tab
-let displayHome = function(){
-  console.log('displayHome works');
-  $('.content').html();
-};
+const uiDisplay = require('./ui-display'); // ui display
 
 //display articles in articles tab
 let displayArticles = function(response){
@@ -37,11 +32,6 @@ let getArticles = function(){
 };
 
 
-//clear content on page
-let clear = function(){
-  $('.content').empty();
-};
-
 //CRUD Edit --- Update on click of handlebars button calls getArticleId function
 $('.content').on('click', '.edit-article-button', articleCrud.getArticleId);
 $('#edit-article').on('submit', function(e) {
@@ -56,9 +46,9 @@ $(document).ready(function(){
     $('.jumbotron').hide();
   });
   $('.home-tab').on('click',function(){
-    clear();
+    uiDisplay.clearContent();
     $('.jumbotron').show();
-    displayHome();
+    uiDisplay.displayHome();
   });
   $(window).scroll(function (){
     if ($(this).scrollTop() > 100) {

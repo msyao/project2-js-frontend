@@ -1,5 +1,16 @@
 'use strict';
 
+//display content in home tab
+let displayHome = function(){
+  console.log('displayHome works');
+  $('.content').html();
+};
+
+//clear content on page
+let clearContent = function(){
+  $('.content').empty();
+};
+
 //hides modal after login action
 let hideModal = function (){
   $('#sign-in-modal').modal('hide');
@@ -36,6 +47,8 @@ let signIn = function () {
 };
 
 module.exports = {
+  displayHome,
+  clearContent,
   pageOnLoad,
   hideModal,
   signIn,
