@@ -23,9 +23,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-bottom: 10em;
 }
 
-
+@media (max-width: 1200px) {
+  .sidebar-right{
+    display: none !important;
+  }
+}
 .sidebar-right {
-  margin: 7em 1em 0 -20em;
+  margin: 7em 1em 0 -22em;
 }
 
 .crud-modals {
