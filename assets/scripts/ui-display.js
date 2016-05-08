@@ -35,7 +35,6 @@ let articleTab = function (){
 };
 
 
-
 let signOut = function (){
   $('.change-password-nav').hide();
   $('.sign-in-nav').show();

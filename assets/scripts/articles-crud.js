@@ -89,7 +89,7 @@ let editArticle = function(e) {
 
 // Populate update modal with text
 let fillUpdate = function(response) {
-  let article = response.article;
+  let article = response.articles;
   console.log(article);
   $('#edit-title').val(article.title);
   $('#edit-author').val(article.author);
