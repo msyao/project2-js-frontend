@@ -3,35 +3,9 @@
 // var example = require('./example');
 // use require without a reference to ensure a file is bundled
 require('./example');
-const apiAuth = require('./api-auth'); //login
 const articleCrud = require('./articles-crud'); //front end crud
 const uiDisplay = require('./ui-display'); // ui display
 
-//display articles in articles tab
-let displayArticles = function(response) {
-  console.log('displayArticles works');
-  let articles = response.articles;
-  let articleListingTemplate = require('./templates/article-listing.handlebars');
-  $('.content').html(articleListingTemplate({
-    articles
-  }));
-  if (apiAuth.myApp.user) {
-    $('.logged-in-button').show();
-  }
-};
-
-
-//get articles in articles tab
-let getArticles = function() {
-  $.ajax({
-    url: apiAuth.myApp.baseUrl + '/articles/',
-    method: 'GET',
-    dataType: 'json'
-  }).done(function(articles) {
-    displayArticles(articles);
-    console.log(articles);
-  });
-};
 
 
 //CRUD Edit --- Update on click of handlebars button calls getArticleId function
@@ -44,9 +18,10 @@ $('#edit-article').on('submit', function(e) {
 // twitter embed
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
+
 $(document).ready(function() {
   $('.articles-tab').on('click', function() {
-    getArticles();
+    articleCrud.getArticles();
     uiDisplay.articleTab();
   });
   $('.home-tab').on('click', function() {
